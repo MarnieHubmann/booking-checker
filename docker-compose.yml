@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+
+  drivers-licence:
+    image: drivers-licence
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - selenium
+    networks:
+      - drivers-licence
+    environment:
+      LicenceNumber: ${LicenceNumber}
+      LicenceVersion: ${LicenceVersion}
+      LastName: ${LastName}
+      DateOfBirth: ${DateOfBirth}
+      TZ: Pacific/Auckland
+    volumes:
+      - ./app.py:/app.py
+
+  selenium:
+    image: selenium/standalone-chrome-debug:latest
+    ports:
+      - "4444:4444"
+      - "5900:5900"
+    environment:
+      - JAVA_OPTS=-Dwebdriver.chrome.whitelistedIps=172.19.0.2
+      - TZ=Pacific/Auckland
+    privileged: true
+    shm_size: 2g
+    networks:
+      - drivers-licence
+
+networks:
+  drivers-licence:
