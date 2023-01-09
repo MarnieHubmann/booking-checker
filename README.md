@@ -20,7 +20,7 @@ yarn && npx playwright install --with-deps
 To run it locally:
 
 ```sh
-npx playwright test drivers-test.spec.ts
+yarn playwright test
 ```
 
 ## Scheduling
@@ -28,5 +28,6 @@ npx playwright test drivers-test.spec.ts
 You can clone this repo on a server and follow the setup instructions, and then add the following entry to your crontab:
 
 ```sh
-
+*/5 * * * * /Users/mark/Documents/drivers-licence-booking/node_modules/.bin/playwright test
 ```
+(Replace `/Users/mark/Documents/drivers-licence-booking` with the actual path of this repository)
