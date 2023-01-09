@@ -55,13 +55,13 @@ test("check drivers licence test slots and change it if there is an earlier spot
   await page.click('a:text("Wellington")');
   await page.click('li:not(.activeLink) a:text("Wellington")');
   await page.click('a:text("VTNZ Thorndon")');
-  await page.waitForTimeout(1000);
+  await page.waitForTimeout(3000);
 
   // Find the next soonest available booking
   let newDateText = await page.locator(".dateText").first().innerText();
   while (!newDateText.length) {
     await page.click("a.ui-datepicker-next");
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(3000);
     newDateText = await page.locator(".dateText").first().innerText();
   }
   const newDate = parse(newDateText, "EEEE d MMMM y", new Date());
@@ -73,11 +73,11 @@ test("check drivers licence test slots and change it if there is an earlier spot
   ) {
     // There is a new booking time - rebook it
     await page.locator("input").first().click();
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(3000);
     await page.click('button:text("Continue")');
 
     // Confirmation page - confirm the booking change!
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(5000);
     await page.click('button:text("Continue")');
 
     await page.screenshot({ path: "screenshots/changed-booking.png", fullPage: true });
