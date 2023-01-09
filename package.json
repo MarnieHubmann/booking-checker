@@ -1,0 +1,16 @@
+{
+  "name": "drivers-licence-booking",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:markmetcalfe/drivers-licence-booking.git",
+  "author": "Mark Metcalfe <mark.ls.metcalfe@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.29.2"
+  },
+  "scripts": {},
+  "dependencies": {
+    "date-fns": "^2.29.3",
+    "dotenv": "^16.0.3"
+  }
+}

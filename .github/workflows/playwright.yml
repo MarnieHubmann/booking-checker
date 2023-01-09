@@ -1,0 +1,33 @@
+name: Playwright Tests
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  push:
+    branches: [ master ]
+
+jobs:
+  test:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - name: Install dependencies
+      run: yarn
+    - name: Install Playwright Browsers
+      run: yarn playwright install --with-deps
+    - name: Check drivers licence bookings
+      run: yarn playwright test
+      env:
+        LICENCE_NUMBER: ${{ secrets.LICENCE_NUMBER }}
+        LICENCE_VERSION: ${{ secrets.LICENCE_VERSION }}
+        LAST_NAME: ${{ secrets.LAST_NAME }}
+        DATE_OF_BIRTH: ${{ secrets.DATE_OF_BIRTH }}
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: screenshots
+        path: screenshots/
+        retention-days: 30
