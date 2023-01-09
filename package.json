@@ -5,12 +5,14 @@
   "repository": "git@github.com:markmetcalfe/drivers-licence-booking.git",
   "author": "Mark Metcalfe <mark.ls.metcalfe@gmail.com>",
   "license": "MIT",
-  "devDependencies": {
-    "@playwright/test": "^1.29.2"
-  },
   "scripts": {},
   "dependencies": {
+    "@playwright/test": "^1.29.2",
+    "@types/nodemailer": "^6.4.7",
+    "@types/nodemailer-smtp-transport": "^2.7.5",
     "date-fns": "^2.29.3",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "nodemailer": "^6.8.0",
+    "nodemailer-smtp-transport": "^2.7.4"
   }
 }
