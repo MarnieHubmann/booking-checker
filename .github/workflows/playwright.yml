@@ -21,6 +21,9 @@ jobs:
         LICENCE_VERSION: ${{ secrets.LICENCE_VERSION }}
         LAST_NAME: ${{ secrets.LAST_NAME }}
         DATE_OF_BIRTH: ${{ secrets.DATE_OF_BIRTH }}
+        GMAIL_TO: ${{ secrets.GMAIL_TO }}
+        GMAIL_FROM: ${{ secrets.GMAIL_FROM }}
+        GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
     - uses: actions/upload-artifact@v3
       if: always()
       with:
