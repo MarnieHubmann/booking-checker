@@ -1,8 +1,8 @@
 {
-  "name": "drivers-licence-booking",
+  "name": "bookings-checker",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:markmetcalfe/drivers-licence-booking.git",
+  "repository": "git@github.com:markmetcalfe/bookings-checker.git",
   "author": "Mark Metcalfe <mark.ls.metcalfe@gmail.com>",
   "license": "MIT",
   "scripts": {},

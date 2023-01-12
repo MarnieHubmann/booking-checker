@@ -1,6 +1,6 @@
-# drivers-licence-booking
+# bookings-checker
 
-Checks Waka Kotahi NZTA practical drivers licence bookings and rebooks them to an earlier date if possible.
+Checks a website that takes bookings and notifies you via email if there is a booking available.
 
 ## Requirements
 
@@ -9,7 +9,7 @@ Node 16 and Yarn are required
 ## Local Setup
 
 Make a copy of `.env.dist` and name it `.env`
-In `.env`, set the values to be the details of the driver you wish to make bookings on behalf of.
+In `.env`, set the values to be the details for the gmail account you wish to send email notifications from.
 
 To install depedencies:
 
@@ -28,6 +28,6 @@ yarn playwright test
 You can clone this repo on a server and follow the setup instructions, and then add the following entry to your crontab:
 
 ```sh
-*/5 * * * * /Users/mark/Documents/drivers-licence-booking/node_modules/.bin/playwright test
+*/5 * * * * /Users/mark/Documents/bookings-checker/node_modules/.bin/playwright test
 ```
-(Replace `/Users/mark/Documents/drivers-licence-booking` with the actual path of this repository)
+(Replace `/Users/mark/Documents/bookings-checker` with the actual path of this repository)

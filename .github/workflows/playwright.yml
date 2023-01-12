@@ -1,10 +1,12 @@
-name: Playwright Tests
+name: Check Bookings
 on:
+  schedule:
+    - cron: '*/5 * * * *'
   push:
     branches: [ master ]
 
 jobs:
-  test:
+  check:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
@@ -14,16 +16,13 @@ jobs:
       run: yarn
     - name: Install Playwright Browsers
       run: yarn playwright install --with-deps
-    - name: Check drivers licence bookings
+    - name: Check bookings availability
       run: yarn playwright test
       env:
-        LICENCE_NUMBER: ${{ secrets.LICENCE_NUMBER }}
-        LICENCE_VERSION: ${{ secrets.LICENCE_VERSION }}
-        LAST_NAME: ${{ secrets.LAST_NAME }}
-        DATE_OF_BIRTH: ${{ secrets.DATE_OF_BIRTH }}
         GMAIL_TO: ${{ secrets.GMAIL_TO }}
         GMAIL_FROM: ${{ secrets.GMAIL_FROM }}
         GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
+        SEND_FOR_FAILURE: ${{ secrets.SEND_FOR_FAILURE }}
     - uses: actions/upload-artifact@v3
       if: always()
       with:
